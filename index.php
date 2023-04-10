@@ -20,7 +20,7 @@ include("config.php");
         paypal.Buttons({
             // Order is created on the server and the order id is returned
             createOrder() {
-                return fetch("/my-server/create-paypal-order", {
+                return fetch("create-paypal-order.php", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -39,7 +39,7 @@ include("config.php");
             },
             // Finalize the transaction on the server after payer approval
             onApprove(data) {
-                return fetch("/my-server/capture-paypal-order", {
+                return fetch("capture-paypal-order.php", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
